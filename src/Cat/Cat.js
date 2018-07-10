@@ -5,11 +5,13 @@ import './Cat.css';
 const propTypes = {
   name: PropTypes.string.isRequired,
   age: PropTypes.number.isRequired,
-  meowsPerHour: PropTypes.number
+  meowsPerHour: PropTypes.number,
+  color: PropTypes.string
 };
 
 const defaultProps = {
-  meowsPerHour: 10
+  meowsPerHour: 10,
+  color: 'deeppink'
 };
 
 class Cat extends Component {
@@ -17,7 +19,11 @@ class Cat extends Component {
     return (
       <div className="Cat">
         <p>
-          I am <span className="name">{this.props.name}</span> ! I am
+          I am
+          <span className="name" style={{ color: this.props.color }}>
+            {this.props.name}
+          </span>
+          ! I am
           {this.props.age} years old and I do {this.props.meowsPerHour} meows
           per hour
         </p>
