@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'react-bootstrap';
 import './Cat.css';
 
 const propTypes = {
@@ -15,6 +16,16 @@ const defaultProps = {
 };
 
 class Cat extends Component {
+  constructor(props) {
+    super(props);
+
+    this.meow = this.meow.bind(this);
+  }
+
+  meow() {
+    console.log(`${this.props.name} meows`);
+  }
+
   render() {
     return (
       <div className="Cat">
@@ -27,6 +38,8 @@ class Cat extends Component {
           {this.props.age} years old and I do {this.props.meowsPerHour} meows
           per hour
         </p>
+
+        <Button onClick={this.meow}>Meow</Button>
       </div>
     );
   }

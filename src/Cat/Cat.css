@@ -1,9 +1,16 @@
 .Cat {
   padding: 10px 0;
   font-size: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.Cat button {
+  margin: 0 20px;
 }
 
 .Cat .name {
   font-size: 1.5em;
+  padding: 0 5px;
   color: darkcyan;
 }
