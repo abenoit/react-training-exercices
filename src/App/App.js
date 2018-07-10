@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { PageHeader } from 'react-bootstrap';
+import Cat from '../Cat/Cat';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React exercices</h1>
-        </header>
+        <PageHeader>
+          React Training <small>stage 2</small>
+        </PageHeader>
+
+        <Cat name="Pinkie" age={3} />
+        <Cat name="Lincoln" age={5} meowsPerHour={11} />
+        <Cat name="Sparkle" age={8} meowsPerHour={8} />
       </div>
     );
   }

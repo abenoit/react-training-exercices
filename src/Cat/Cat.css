@@ -1,0 +1,9 @@
+.Cat {
+  padding: 10px 0;
+  font-size: 15px;
+}
+
+.Cat .name {
+  font-size: 1.5em;
+  color: darkcyan;
+}
