@@ -3,17 +3,40 @@ import { PageHeader } from 'react-bootstrap';
 import Cat from '../Cat/Cat';
 import './App.css';
 
+const cats = [
+  {
+    name: 'pinkie',
+    age: 3,
+    color: 'black'
+  },
+  {
+    name: 'Lincoln',
+    age: 5,
+    meowsPerHour: 5,
+    color: 'pink'
+  },
+  {
+    name: 'Sparkle',
+    meowsPerHour: 8,
+    age: 8
+  }
+];
 class App extends Component {
   render() {
     return (
       <div className="App">
         <PageHeader>
-          React Training <small>stage 2</small>
+          React Training <small>stage 3</small>
         </PageHeader>
 
-        <Cat name="Pinkie" age={3} />
-        <Cat name="Lincoln" age={5} meowsPerHour={11} />
-        <Cat name="Sparkle" age={8} meowsPerHour={8} />
+        {cats.map(cat => (
+          <Cat
+            name={cat.name}
+            age={cat.age}
+            meowsPerHour={cat.meowsPerHour}
+            color={cat.color}
+          />
+        ))}
       </div>
     );
   }
