@@ -31,6 +31,7 @@ class App extends Component {
 
         {cats.map(cat => (
           <Cat
+            key={cat.name}
             name={cat.name}
             age={cat.age}
             meowsPerHour={cat.meowsPerHour}
