@@ -15,6 +15,10 @@ npm start
 npm test
 ```
 
-## Table of Contents
+## TP 4
 
-TODO
+#### \* Create a form to add a new cat in the array
+
+#### \* Disable "add" button if required fields are not filled
+
+#### \* Display a message if no cats array is empty
