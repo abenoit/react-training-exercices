@@ -21,12 +21,13 @@ const cats = [
     age: 8
   }
 ];
+
 class App extends Component {
   render() {
     return (
       <div className="App">
         <PageHeader>
-          React Training <small>stage 3</small>
+          React Training <small>stage 4</small>
         </PageHeader>
 
         {cats.map(cat => (
