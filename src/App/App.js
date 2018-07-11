@@ -3,8 +3,12 @@ import { PageHeader } from 'react-bootstrap';
 import Cat from '../Cat/Cat';
 import './App.css';
 
+// TODO : create an array of cats
+
 class App extends Component {
   render() {
+    // TODO : use cats array to replace the three cats below
+
     return (
       <div className="App">
         <PageHeader>

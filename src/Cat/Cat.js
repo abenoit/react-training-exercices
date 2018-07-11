@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Cat.css';
 
+// TODO: add cat's color
 const propTypes = {
   name: PropTypes.string.isRequired,
   age: PropTypes.number.isRequired,
@@ -14,6 +15,8 @@ const defaultProps = {
 
 class Cat extends Component {
   render() {
+    // TODO : add a style property to cat's name
+    // TODO (3) : add a button for the cat to meow
     return (
       <div className="Cat">
         <p>
