@@ -17,4 +17,8 @@ npm test
 
 ## Table of Contents
 
-TODO
+#### \* Add a color and style the cat's name according its color
+
+#### \* Create an array of cats and display them using a map function
+
+#### \* Add a button for the cat to meow
