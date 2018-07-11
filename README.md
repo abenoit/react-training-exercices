@@ -15,6 +15,10 @@ npm start
 npm test
 ```
 
-## Table of Contents
+## TP 1
 
-TODO
+#### \* Create a cat in the App
+
+#### \* Use propTypes to make name, age and meows per hour variables
+
+#### \* Create different cats
