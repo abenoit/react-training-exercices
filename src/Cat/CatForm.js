@@ -7,21 +7,25 @@ const propTypes = {
   addCat: PropTypes.func.isRequired
 };
 
+const defaultCat = {
+  name: '',
+  age: 1,
+  meowsPerHour: 10,
+  color: 'green'
+};
+
 class CatForm extends Component {
   constructor() {
     super();
 
     this.state = {
-      cat: {
-        name: '',
-        age: 1,
-        meowsPerHour: 10
-      }
+      cat: { ...defaultCat }
     };
 
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeAge = this.handleChangeAge.bind(this);
     this.handleChangeMeowsPerHour = this.handleChangeMeowsPerHour.bind(this);
+    this.handleChangeColor = this.handleChangeColor.bind(this);
     this.addCat = this.addCat.bind(this);
   }
 
@@ -30,11 +34,20 @@ class CatForm extends Component {
   }
 
   handleChangeAge(event) {
-    this.setState({ cat: { ...this.state.cat, age: event.target.value } });
+    this.setState({
+      cat: { ...this.state.cat, age: event.target.valueAsNumber }
+    });
   }
+
   handleChangeMeowsPerHour(event) {
     this.setState({
-      cat: { ...this.state.cat, meowsPerHour: event.target.value }
+      cat: { ...this.state.cat, meowsPerHour: event.target.valueAsNumber }
+    });
+  }
+
+  handleChangeColor(event) {
+    this.setState({
+      cat: { ...this.state.cat, color: event.target.value }
     });
   }
 
@@ -45,11 +58,7 @@ class CatForm extends Component {
   addCat() {
     this.props.addCat(this.state.cat);
     this.setState({
-      cat: {
-        name: '',
-        age: '',
-        meowsPerHour: ''
-      }
+      cat: { ...defaultCat }
     });
   }
 
@@ -80,6 +89,14 @@ class CatForm extends Component {
             value={this.state.cat.meowsPerHour}
             placeholder="MeowsPerHour"
             onChange={this.handleChangeMeowsPerHour}
+          />
+
+          <ControlLabel>Color</ControlLabel>
+          <FormControl
+            width="200px"
+            value={this.state.cat.color}
+            placeholder="Color"
+            onChange={this.handleChangeColor}
           />
 
           <Button

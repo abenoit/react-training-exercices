@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cat should display a cat 1`] = `
+<div
+  className="Cat"
+>
+  <div
+    className="info"
+  >
+    I am
+    <span
+      className="name"
+      style={
+        Object {
+          "color": "deeppink",
+        }
+      }
+    >
+      lala
+    </span>
+    ! I am
+    3
+     years old and I do 
+    10
+     meows per hour
+    <div>
+      Meows 
+      <span
+        className="badge"
+      >
+        0
+      </span>
+    </div>
+  </div>
+  <button
+    className="btn btn-default"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Meow
+  </button>
+</div>
+`;

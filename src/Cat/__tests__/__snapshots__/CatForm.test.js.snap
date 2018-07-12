@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CatForm should display a cat form 1`] = `
+<div
+  className="CatForm"
+>
+  <h2>
+     Add a new cat 
+  </h2>
+  <form
+    className="form-inline"
+  >
+    <label
+      className="control-label"
+      htmlFor={undefined}
+    >
+      Name * 
+    </label>
+    <input
+      className="form-control"
+      id={undefined}
+      onChange={[Function]}
+      placeholder="Name"
+      type={undefined}
+      value=""
+    />
+    <label
+      className="control-label"
+      htmlFor={undefined}
+    >
+      Age * 
+    </label>
+    <input
+      className="form-control"
+      id={undefined}
+      onChange={[Function]}
+      placeholder="Age"
+      type="number"
+      value={1}
+    />
+    <label
+      className="control-label"
+      htmlFor={undefined}
+    >
+      MeowsPerHour
+    </label>
+    <input
+      className="form-control"
+      id={undefined}
+      onChange={[Function]}
+      placeholder="MeowsPerHour"
+      type="number"
+      value={10}
+      width="200px"
+    />
+    <label
+      className="control-label"
+      htmlFor={undefined}
+    >
+      Color
+    </label>
+    <input
+      className="form-control"
+      id={undefined}
+      onChange={[Function]}
+      placeholder="Color"
+      type={undefined}
+      value="green"
+      width="200px"
+    />
+    <button
+      className="btn btn-primary"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      Add this cat
+    </button>
+  </form>
+</div>
+`;
