@@ -15,6 +15,14 @@ class App extends Component {
     this.addCat = this.addCat.bind(this);
   }
 
+  componentDidMount() {
+    fetch('./cats.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ cats: data });
+      });
+  }
+
   addCat(cat) {
     this.setState({ cats: [...this.state.cats, cat] });
   }
@@ -23,7 +31,7 @@ class App extends Component {
     return (
       <div className="App">
         <PageHeader>
-          React Training <small>stage 5</small>
+          React Training <small>stage 7</small>
         </PageHeader>
 
         <CatForm addCat={this.addCat} />
