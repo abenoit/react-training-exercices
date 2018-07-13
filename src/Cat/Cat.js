@@ -17,6 +17,8 @@ const defaultProps = {
   color: 'deeppink'
 };
 
+// TODO : Add a consumer tag and consume the value
+
 const Cat = ({ name, age, meow, meowsPerHour, color }) => {
   const catmeow = () => {
     console.log('meow from cat');

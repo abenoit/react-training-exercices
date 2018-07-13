@@ -4,12 +4,26 @@ import Cat from '../Cat/Cat';
 import CatForm from '../Cat/CatForm';
 import './App.css';
 
+export const themes = {
+  light: {
+    textColor: '#000000',
+    background: '#eeeeee'
+  },
+  dark: {
+    textColor: '#ffffff',
+    background: '#222222'
+  }
+};
+
+// TODO create a ThemeContext
+
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      cats: []
+      cats: [],
+      theme: themes.light
     };
 
     this.addCat = this.addCat.bind(this);
@@ -28,10 +42,19 @@ class App extends Component {
   }
 
   render() {
+    // TODO : handle onClick to toggle the theme in a function
+    // TODO : add the Provider tag
+    // TODO : add the background and color to the App
     return (
-      <div className="App">
+      <div className="App" style={{}}>
         <PageHeader>
-          React Training <small>stage 7</small>
+          React Training{' '}
+          <small>
+            stage 8 -
+            <span onClick={() => console.log('todo')} className="theme-changer">
+              Change theme
+            </span>
+          </small>
         </PageHeader>
 
         <CatForm addCat={this.addCat} />
