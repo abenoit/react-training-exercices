@@ -14,7 +14,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "coverage": "npm test --coverage --coverageReporters=html --coverageDirectory=./target/reports/html --no-cache"
+    "coverage": "react-scripts test --env=jsdom --coverage"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -22,7 +22,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^5.1.0",
-    "jest": "^23.3.0",
+    "jest": "^23.4.0",
     "prettier": "1.13.7",
     "react-test-renderer": "^16.4.1"
   },
