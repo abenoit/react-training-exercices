@@ -15,23 +15,17 @@ const defaultProps = {
   color: 'deeppink'
 };
 
+// TODO : transform Cat into a functional component
+// TODO : check Cat.test.js (run tests)
 class Cat extends Component {
   constructor(props) {
     super(props);
 
     this.meow = this.meow.bind(this);
-
-    this.state = {
-      meows: 0
-    };
   }
 
   meow() {
-    if (this.state.meows < this.props.meowsPerHour) {
-      this.setState({ meows: this.state.meows + 1 });
-    } else {
-      alert(`${this.props.name} already meowed too much !`);
-    }
+    console.log('meow');
   }
 
   render() {
@@ -45,9 +39,6 @@ class Cat extends Component {
           ! I am
           {this.props.age} years old and I do {this.props.meowsPerHour} meows
           per hour
-          <div>
-            Meows <Badge>{this.state.meows}</Badge>
-          </div>
         </div>
         <Button onClick={this.meow}>Meow</Button>
       </div>
