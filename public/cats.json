@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Berlioz",
+    "age": 1,
+    "color": "black"
+  },
+  {
+    "name": "Toulouse",
+    "age": 2,
+    "color": "orange"
+  },
+  {
+    "name": "Duchess",
+    "age": 6,
+    "color": "grey"
+  },
+  {
+    "name": "Thomas O'Malley",
+    "age": 6,
+    "color": "orange"
+  },
+  {
+    "name": "Scat Cat",
+    "age": 9,
+    "color": "black"
+  },
+  {
+    "name": "Marie",
+    "age": 1,
+    "color": "grey"
+  }
+]

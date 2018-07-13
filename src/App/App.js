@@ -15,11 +15,14 @@ class App extends Component {
     this.addCat = this.addCat.bind(this);
   }
 
+  //TODO : fetch data from cats.json
+
   addCat(cat) {
     this.setState({ cats: [...this.state.cats, cat] });
   }
 
   render() {
+    // TODO : display a loading message before cats are fetched and loaded
     return (
       <div className="App">
         <PageHeader>
