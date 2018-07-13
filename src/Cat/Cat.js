@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
+import { ThemeContext } from '../App/App';
 import './Cat.css';
 
 const propTypes = {
@@ -17,8 +18,6 @@ const defaultProps = {
   color: 'deeppink'
 };
 
-// TODO : Add a consumer tag and consume the value
-
 const Cat = ({ name, age, meow, meowsPerHour, color }) => {
   const catmeow = () => {
     console.log('meow from cat');
@@ -26,17 +25,24 @@ const Cat = ({ name, age, meow, meowsPerHour, color }) => {
   };
 
   return (
-    <div className="Cat">
-      <div className="info">
-        I am
-        <span className="name" style={{ color: color }}>
-          {name}
-        </span>
-        ! I am
-        {age} years old and I do {meowsPerHour} meows per hour
-      </div>
-      <Button onClick={catmeow}>Meow</Button>
-    </div>
+    <ThemeContext.Consumer>
+      {theme => (
+        <div
+          className="Cat"
+          style={{ backgroundColor: theme.background, color: theme.textColor }}
+        >
+          <div className="info">
+            I am
+            <span className="name" style={{ color: color }}>
+              {name}
+            </span>
+            ! I am
+            {age} years old and I do {meowsPerHour} meows per hour
+          </div>
+          <Button onClick={catmeow}>Meow</Button>
+        </div>
+      )}
+    </ThemeContext.Consumer>
   );
 };
 

@@ -11,11 +11,11 @@ export const themes = {
   },
   dark: {
     textColor: '#ffffff',
-    background: '#222222'
+    background: '#4c4c4c'
   }
 };
 
-// TODO create a ThemeContext
+export const ThemeContext = React.createContext(themes.dark);
 
 class App extends Component {
   constructor() {
@@ -27,6 +27,7 @@ class App extends Component {
     };
 
     this.addCat = this.addCat.bind(this);
+    this.toggleTheme = this.toggleTheme.bind(this);
   }
 
   componentDidMount() {
@@ -41,45 +42,50 @@ class App extends Component {
     this.setState({ cats: [...this.state.cats, cat] });
   }
 
+  toggleTheme() {
+    this.setState(state => ({
+      theme: state.theme === themes.dark ? themes.light : themes.dark
+    }));
+  }
+
   render() {
-    // TODO : handle onClick to toggle the theme in a function
-    // TODO : add the Provider tag
-    // TODO : add the background and color to the App
     return (
-      <div className="App" style={{}}>
-        <PageHeader>
-          React Training{' '}
-          <small>
-            stage 8 -
-            <span onClick={() => console.log('todo')} className="theme-changer">
-              Change theme
-            </span>
-          </small>
-        </PageHeader>
+      <ThemeContext.Provider value={this.state.theme}>
+        <div className="App" style={{}}>
+          <PageHeader style={{ backgroundColor: this.state.theme.background }}>
+            React Training{' '}
+            <small>
+              stage 8 -
+              <span onClick={this.toggleTheme} className="theme-changer">
+                Change theme
+              </span>
+            </small>
+          </PageHeader>
 
-        <CatForm addCat={this.addCat} />
+          <CatForm addCat={this.addCat} />
 
-        {this.state.cats.length > 0 ? (
-          this.state.cats.map(cat => (
-            <Cat
-              key={cat.name}
-              name={cat.name}
-              age={cat.age}
-              meowsPerHour={cat.meowsPerHour}
-              color={cat.color}
-              meow={() => {
-                console.log('meow from app');
-              }}
-            />
-          ))
-        ) : (
-          <div
-            style={{ padding: '20px 0', fontSize: '2em', color: 'deeppink' }}
-          >
-            No cat to display
-          </div>
-        )}
-      </div>
+          {this.state.cats.length > 0 ? (
+            this.state.cats.map(cat => (
+              <Cat
+                key={cat.name}
+                name={cat.name}
+                age={cat.age}
+                meowsPerHour={cat.meowsPerHour}
+                color={cat.color}
+                meow={() => {
+                  console.log('meow from app');
+                }}
+              />
+            ))
+          ) : (
+            <div
+              style={{ padding: '20px 0', fontSize: '2em', color: 'deeppink' }}
+            >
+              No cat to display
+            </div>
+          )}
+        </div>
+      </ThemeContext.Provider>
     );
   }
 }
