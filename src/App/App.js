@@ -44,6 +44,9 @@ class App extends Component {
               age={cat.age}
               meowsPerHour={cat.meowsPerHour}
               color={cat.color}
+              meow={() => {
+                console.log('meow from app');
+              }}
             />
           ))
         ) : (

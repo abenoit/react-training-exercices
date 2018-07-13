@@ -23,14 +23,6 @@ exports[`Cat should display a cat 1`] = `
      years old and I do 
     10
      meows per hour
-    <div>
-      Meows 
-      <span
-        className="badge"
-      >
-        0
-      </span>
-    </div>
   </div>
   <button
     className="btn btn-default"
