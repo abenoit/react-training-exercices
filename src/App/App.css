@@ -22,17 +22,6 @@
   font-size: large;
 }
 
-.App .theme-changer {
-  cursor: pointer;
-  color: pink;
-  padding: 0 20px;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header {
+  margin-bottom: 32px;
 }

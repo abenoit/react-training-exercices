@@ -1,41 +1,49 @@
-import React, { Component } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
+import { Badge, Button } from '@material-ui/core';
 import './Cat.css';
 
 const propTypes = {
   name: PropTypes.string.isRequired,
   age: PropTypes.number.isRequired,
-  meow: PropTypes.func,
-  meowsPerHour: PropTypes.number,
-  color: PropTypes.string
+  maxMeow: PropTypes.number,
+  color: PropTypes.string,
 };
 
 const defaultProps = {
-  meowsPerHour: 10,
-  meow: () => {},
-  color: 'deeppink'
+  maxMeow: 10,
+  color: 'deeppink',
 };
 
 // TODO : Add a consumer tag and consume the value
+// or useContext
+const Cat = (props) => {
+  const [meows, setMeows] = useState(0);
 
-const Cat = ({ name, age, meow, meowsPerHour, color }) => {
-  const catmeow = () => {
-    console.log('meow from cat');
-    meow();
+  const meow = () => {
+    if (meows < props.maxMeow) {
+      setMeows((old_meows_count) => old_meows_count + 1);
+    } else {
+      alert(`${props.name} already meowed too much !`);
+    }
   };
 
   return (
     <div className="Cat">
       <div className="info">
         I am
-        <span className="name" style={{ color: color }}>
-          {name}
+        <span className="name" style={{ color: props.color }}>
+          {props.name}
         </span>
         ! I am
-        {age} years old and I do {meowsPerHour} meows per hour
+        {props.age} years old and I do {props.maxMeow} meows per hour
+        <div>
+          Meows <Badge>{meows}</Badge>
+        </div>
       </div>
-      <Button onClick={catmeow}>Meow</Button>
+      <Button variant="contained" onClick={meow}>
+        Meow
+      </Button>
     </div>
   );
 };
