@@ -1,61 +1,54 @@
-import React, { Component } from 'react';
-import { PageHeader } from 'react-bootstrap';
-import Cat from '../Cat/Cat';
-import CatForm from '../Cat/CatForm';
+import { useEffect, useState } from 'react';
+import Cat from '../Cat';
+import CatForm from '../CatForm';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import './App.css';
 
-class App extends Component {
-  constructor() {
-    super();
+function App() {
+  const [cats, setCats] = useState([]);
 
-    this.state = {
-      cats: []
-    };
+  const addCat = (cat) => {
+    setCats([...cats, cat]);
+  };
 
-    this.addCat = this.addCat.bind(this);
-  }
-
-  componentDidMount() {
+  useEffect(() => {
     fetch('./cats.json')
-      .then(res => res.json())
-      .then(data => {
-        this.setState({ cats: data });
+      .then((res) => res.json())
+      .then((data) => {
+        setCats(data);
       });
-  }
+  }, []);
 
-  addCat(cat) {
-    this.setState({ cats: [...this.state.cats, cat] });
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <PageHeader>
-          React Training <small>stage 7</small>
-        </PageHeader>
-
-        <CatForm addCat={this.addCat} />
-
-        {this.state.cats.length > 0 ? (
-          this.state.cats.map(cat => (
-            <Cat
-              key={cat.name}
-              name={cat.name}
-              age={cat.age}
-              meowsPerHour={cat.meowsPerHour}
-              color={cat.color}
-            />
-          ))
-        ) : (
-          <div
-            style={{ padding: '20px 0', fontSize: '2em', color: 'deeppink' }}
-          >
-            No cat to display
-          </div>
-        )}
+  return (
+    <div className="App">
+      <div className="header">
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h2">
+              React Training <b>stage 7</b>
+            </Typography>
+          </Toolbar>
+        </AppBar>
       </div>
-    );
-  }
+      <CatForm addCat={addCat} />
+
+      {cats.length > 0 ? (
+        cats.map((cat, index) => (
+          <Cat
+            key={index}
+            name={cat.name}
+            age={cat.age}
+            maxMeow={cat.maxMeow}
+            color={cat.color}
+          />
+        ))
+      ) : (
+        <div style={{ padding: '20px 0', fontSize: '2em', color: 'deeppink' }}>
+          No cats to display
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default App;
