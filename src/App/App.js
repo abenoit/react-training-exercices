@@ -17,7 +17,7 @@ function App() {
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h2">
-              React Training <b>stage 5</b>
+              React Training <b>stage 6</b>
             </Typography>
           </Toolbar>
         </AppBar>
